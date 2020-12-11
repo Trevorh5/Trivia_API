@@ -11,7 +11,7 @@ def create_app(test_config=None):
   # create and configure the app
   app = Flask(__name__)
   setup_db(app)
-
+  
   CORS(app, resources={r"/api/*": {"origins": "*"}})
 
   @app.after_request
@@ -37,15 +37,17 @@ def create_app(test_config=None):
 
   @app.route('/questions', methods=['GET'])
   def get_questions():
-    page = request.args.get('page', 1, type=int)
+    selected_page = request.args.get('page', 1, type=int)
+    current_index = selected_page - 1
+    items_limit = 10
 
-    start =  (page - 1) * 10
-    end = start + 10
+    questions = [question.format() for question in Question.query.order_by(
+        Question.id
+    ).limit(items_limit).offset(current_index * items_limit).all()]
 
-    all_questions = [question.format() for question in Question.query.order_by(Question.id).all()]
-    questions = all_questions[start:end]
+    categories = {category.id: category.type for category in Category.query.order_by(
+        Category.id).all()}
 
-    categories = {category.id: category.type for category in Category.query.order_by(Category.id).all()}
 
     if len(questions) == 0 or len(categories) == 0:
       abort(404)
@@ -53,7 +55,7 @@ def create_app(test_config=None):
     return jsonify({
       "success": True,
       "questions": questions,
-      "total_questions": len(all_questions),
+      "total_questions": len(questions),
       "categories": categories,
       "current_category": None
     })
