@@ -19,9 +19,9 @@ This app uses Python3, pip, and Node. So you should already have these installed
 
 ### Backend
 
-To get the backend up and running, first `cd` into the backend folder and run `pip install requirements.txt`. This should download all necessary packages in order to run it.
+1) To get the backend up and running, first `cd` into the backend folder and run `pip install requirements.txt`. This should download all necessary packages in order to run it.
 
-1) Before starting it you may want to start up a virtualenv using the following commands: 
+2) Before starting it you may want to start up a virtualenv using the following commands: 
 ```
 python -m virtualenv env
 source env/bin/activate
@@ -32,7 +32,7 @@ source env/Scripts/activate
 ```
 <br>
 
-2) To actually start up the application run the following commands:
+3) To actually start up the application run the following commands:
 ```
 export FLASK_APP=flaskr
 export FLASK_ENV=development
@@ -228,7 +228,7 @@ The following are all of the potential errors you may run into:
 - General
   - Creates a new question with the given values.
   - Receives data to insert into record in the following format:
-  ```json
+  ```json5
     {
       "question": "What is your answer?",
       "answer": "This is my answer.",
