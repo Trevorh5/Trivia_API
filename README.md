@@ -336,7 +336,7 @@ The following are all of the potential errors you may run into:
 - General 
   - Returns a random question in the given category (if provided) that is not one of the previous questions (if provided)
   - Recieves data in the following format: 
-  ```json
+  ```json5
     {
      "previous_questions": [3, 6, 2], //ID's of the previous questions
      "quiz_category": 2 //ID of the selected category (can be null)
