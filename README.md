@@ -19,9 +19,7 @@ This app uses Python3, pip, and Node. So you should already have these installed
 
 ### Backend
 
-1) To get the backend up and running, first `cd` into the backend folder and run `pip install requirements.txt`. This should download all necessary packages in order to run it.
-
-2) Before starting it you may want to start up a virtualenv using the following commands: 
+1) Before starting it you may want to start up a virtualenv using the following commands in the backend folder: 
 ```
 python -m virtualenv env
 source env/bin/activate
@@ -30,7 +28,7 @@ source env/bin/activate
 ```
 source env/Scripts/activate
 ```
-<br>
+2) Now to get the backend up and running, first `cd` into the backend folder and run `pip install requirements.txt`. This should download all necessary packages in order to run it.
 
 3) To actually start up the application run the following commands:
 ```
